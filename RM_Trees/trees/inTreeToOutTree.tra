@@ -1,0 +1,17 @@
+transform InTreeToOutTree2 : Trees {
+
+   metamodel source : InTree
+   metamodel target : OutTree
+
+   mapping inTreeToOutTree(inTree : InTree_Tree) : OutTree_Tree {
+      create OutTree_Tree(
+         root := inNodeToOutNode(inTree.root, inTree))
+   }
+
+   mapping inNodeToOutNode(inNode : InTree_Node, inTree : InTree_Tree) : OutTree_Node {
+      create OutTree_Node(label := inNode.label,
+         children := inTree.nodes.select(child | child.parent = inNode)
+            .collect(node : InTree_Node | inNodeToOutNode(node, inTree)))
+   }
+
+}

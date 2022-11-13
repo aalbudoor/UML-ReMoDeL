@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_6xS4EFcFEe2Lh7ARxPB2PQ" name="RM_ClassDiagrams">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_6xr5oFcFEe2Lh7ARxPB2PQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_MSpO8FcGEe2Lh7ARxPB2PQ" name="MemberModel">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Q8K-0FcGEe2Lh7ARxPB2PQ" name="Member" visibility="package">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FRqqEFcHEe2Lh7ARxPB2PQ" name="firstName" visibility="package">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="_N0ltYFcHEe2Lh7ARxPB2PQ"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vM81sFcGEe2Lh7ARxPB2PQ" name="getName" visibility="private"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

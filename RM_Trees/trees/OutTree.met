@@ -1,0 +1,18 @@
+metamodel OutTree {
+
+   concept Node {
+      attribute label : String
+      component children : Node[]
+      operation descendants : Node[] {
+         children.append(children.collate(child | child.descendants))
+      }
+   }
+   
+   concept Tree {
+      component root : Node
+      operation nodes : Node[] {
+         root.asList.append(root.descendants)
+      }
+   }
+
+}

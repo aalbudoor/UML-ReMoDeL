@@ -1,0 +1,22 @@
+metamodel Graph {
+
+   concept Graph {
+      component vertices : Vertex[]
+      component edges : Edge[]
+      operation root : Vertex {
+         vertices.detect(vertex | 
+            not edges.exists(edge | 
+               edge.source = vertex))
+      }
+   }
+
+   concept Vertex {
+      attribute label : String
+   }
+
+   concept Edge {
+      reference source : Vertex
+      reference target : Vertex
+   }
+
+}

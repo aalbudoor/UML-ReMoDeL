@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_e2XYkGIZEe2I16SVLvhm0g" name="RM_CD3">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_e3Z6YGIZEe2I16SVLvhm0g">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_2eA_UGIZEe2I16SVLvhm0g" name="MemberDuplicateModel" URI="">
+    <packagedElement xmi:type="uml:Class" xmi:id="_KSHb8GIaEe2I16SVLvhm0g" name="Member" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RikKwGIaEe2I16SVLvhm0g" name="firstName" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_qbnvAGIaEe2I16SVLvhm0g"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2RkvsGIiEe2I16SVLvhm0g" name="lastName" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="__EaeUGIiEe2I16SVLvhm0g"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2iAYYGIiEe2I16SVLvhm0g" name="isActive">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_HT0vwGIjEe2I16SVLvhm0g"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2ydPMGIiEe2I16SVLvhm0g" name="age" visibility="package">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vaz2wGIjEe2I16SVLvhm0g"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3jviMGIiEe2I16SVLvhm0g" name="weight">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        <defaultValue xmi:type="uml:LiteralReal" xmi:id="_1ajysGIjEe2I16SVLvhm0g"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vUdtQGIaEe2I16SVLvhm0g" name="getFirstName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_vZOQcGIlEe2I16SVLvhm0g"  name="firstName" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_zdk2sGIlEe2I16SVLvhm0g"/>
+        </ownedParameter> 
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_01d-EGIiEe2I16SVLvhm0g" name="getLastName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RdUdYGIlEe2I16SVLvhm0g" name="lastName" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_RdUdYWIlEe2I16SVLvhm0g"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1Ute0GIiEe2I16SVLvhm0g" name="setWeight" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VL1hEGImEe2I16SVLvhm0g" name="weight">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <defaultValue xmi:type="uml:LiteralReal" xmi:id="_VL1hEWImEe2I16SVLvhm0g"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,25 @@
+transform InTreeToGraph : Trees {
+
+   metamodel source : InTree
+   metamodel target : Graph
+   
+   mapping inTreeToGraph(inTree : InTree_Tree) : Graph_Graph {
+      create Graph_Graph(
+         vertices := inTree.nodes.collect(node | inNodeToVertex(node)),
+         edges := inTree.nodes.without(inTree.root)
+                     .collect(node | inNodeToEdge(node))
+      )
+   }
+
+   mapping inNodeToVertex(inNode : InTree_Node) : Graph_Vertex {
+      create Graph_Vertex(label := inNode.label)
+   }
+
+   mapping inNodeToEdge(inNode : InTree_Node) : Graph_Edge {
+      create Graph_Edge(
+         source := inNodeToVertex(inNode),
+         target := inNodeToVertex(inNode.parent)
+      )
+   }
+
+}

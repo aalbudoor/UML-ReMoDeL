@@ -1,0 +1,26 @@
+transform OutTreeToInTree : Trees {
+
+   metamodel source : OutTree
+   metamodel target : InTree
+
+   mapping outTreeToInTree(outTree : OutTree_Tree) : InTree_Tree {
+      create InTree_Tree(
+         nodes := outTree.nodes.collect(outNode | 
+            outNodeToInNode(outNode, outTree)
+         )
+      )
+   }
+
+   mapping outNodeToInNode(outNode : OutTree_Node, outTree : OutTree_Tree) : InTree_Node {
+      if outNode = outTree.root
+         then create InTree_Node(
+            label := outNode.label
+         )
+         else create InTree_Node(
+            label := outNode.label, 
+            parent := outNodeToInNode(outTree.nodes.detect(parent | 
+               parent.children.has(outNode)), outTree)
+         )
+   }
+
+}

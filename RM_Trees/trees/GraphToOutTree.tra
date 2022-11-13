@@ -1,0 +1,21 @@
+transform GraphToOutTree : Trees {
+
+   metamodel source : Graph
+   metamodel target : OutTree
+   
+   mapping graphToOutTree(graph : Graph_Graph) : OutTree_Tree {
+      create OutTree_Tree(
+         root := vertexToOutNode(graph.root, graph)
+      )
+   }
+   
+   mapping vertexToOutNode(vertex : Graph_Vertex, graph : Graph_Graph) : OutTree_Node {
+      create OutTree_Node(
+         label := vertex.label,
+         children := graph.edges.select(edge | 
+            edge.target = vertex).collect(edge |
+               vertexToOutNode(edge.source, graph))
+      )
+   }
+
+}

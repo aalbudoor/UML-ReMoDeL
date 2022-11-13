@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [1.8.0_261]"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/aalbudoor/Desktop/ReMoDeL/jast-2.5.jar" sourcepath="/RM_Trees/doc"/>
+	<classpathentry kind="lib" path="/Users/aalbudoor/Desktop/ReMoDeL/remodel-3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

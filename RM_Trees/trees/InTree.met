@@ -1,0 +1,15 @@
+metamodel InTree {
+   concept Node {
+      attribute label : String
+      reference parent : Node
+      operation isRoot : Boolean {
+         parent = null
+      }
+   }
+   concept Tree {
+      component nodes : Node[]
+      operation root : Node {
+         nodes.detect(node | node.isRoot)
+      }
+   }
+}

@@ -1,0 +1,142 @@
+metamodel UmlCd {
+
+   concept Named {
+      attribute name : String
+   }
+
+   concept Type inherit Named {
+   }
+
+   concept BasicType inherit Type {
+   }
+
+   concept ClassType inherit Type {
+      component attributes : Attribute{}
+      component operations : Operation{}
+      operation identifiers : Attribute{} {
+         attributes.select(attrib | 
+            attrib.id)
+      }
+      operation dependents : Attribute{} {
+         attributes.reject(attrib | 
+            attrib.id)
+      }
+   }
+
+   concept Typed inherit Named {
+      reference type : Type
+   }
+
+   concept Variable inherit Typed {
+   }
+
+   concept Attribute inherit Typed {
+      reference type : BasicType
+      attribute id : Boolean
+   }
+
+   concept Operation inherit Typed {
+      attribute specification : Boolean
+      component arguments : Variable[]
+   }
+
+   concept EndRole inherit Typed {
+      reference type : ClassType
+      attribute range : String
+      operation isOne : Boolean {
+         range = "" or range = "1" or range = "1..1"
+      }
+      operation isZeroOne : Boolean {
+         range = "0..1"
+      }
+      operation isZeroMany : Boolean {
+         range = "*" or range = "0..*"
+      }
+      operation isOneMany : Boolean {
+         range = "1..*"
+      }
+      operation isMany : Boolean {
+         not self.isOne
+      }
+      operation isOptional : Boolean {
+         self.isZeroOne or self.isZeroMany
+      }
+      operation isMultiple : Boolean {
+         not (self.isOne or self.isZeroOne)
+      }
+      operation getName : String {
+         if name /= ""
+            then name
+            else type.name.asName
+      }
+   }
+
+   concept Relationship inherit Named {
+      component source : EndRole
+      component target : EndRole
+      operation isOneToOne : Boolean {
+         source.isOne and target.isOne
+      }
+      operation isOneToMany : Boolean {
+         source.isOne and target.isMany
+      }
+      operation isManyToOne : Boolean {
+         source.isMany and target.isOne
+      }
+      operation isManyToMany : Boolean {
+         source.isMany and target.isMany
+      }
+   }
+
+   concept Generalisation inherit Relationship {
+      operation getName : String {
+         if name /= ""
+            then name
+            else source.type.name.concat(
+               "KindOf").concat(
+               target.type.name)
+      }
+   }
+
+   concept Aggregation inherit Relationship {
+      operation getName : String {
+         if name /= ""
+            then name
+            else source.type.name.concat(
+               "MadeOf").concat(
+               target.type.name)
+      }
+   }
+
+   concept Composition inherit Relationship {
+      operation getName : String {
+         if name /= ""
+            then name
+            else source.type.name.concat(
+               "PartOf").concat(
+               target.type.name)
+      }
+   }
+
+   concept Association inherit Relationship {
+      component type : ClassType
+      operation getName : String {
+         if name /= ""
+            then name
+            else if type /= null
+               then type.name
+               else (source.type.name).concat("To").concat(
+                  target.type.name)
+      }
+   }
+
+   concept Diagram inherit Named {
+      component basicTypes : BasicType{}
+      component classTypes : ClassType{}
+      component generalisations : Generalisation{}
+      component aggregations : Aggregation{}
+      component compositions : Composition{}
+      component associations : Association{}
+   }
+
+}

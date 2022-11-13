@@ -1,0 +1,25 @@
+transform OutTreeToGraph : Trees {
+
+   metamodel source : OutTree
+   metamodel target : Graph
+   
+   mapping outTreeToGraph(outTree : OutTree_Tree) : Graph_Graph {
+      create Graph_Graph(
+         vertices := outTree.nodes.collect(node | outNodeToVertex(node)),
+         edges := outTree.nodes.collate(node | outNodeToEdges(node))
+      )
+   }
+
+   mapping outNodeToVertex(outNode : OutTree_Node) : Graph_Vertex {
+      create Graph_Vertex(label := outNode.label)
+   }
+
+   mapping outNodeToEdges(outNode : OutTree_Node) : Graph_Edge[] {
+      outNode.children.collect(child |
+         create Graph_Edge(
+            source := outNodeToVertex(child),
+            target := outNodeToVertex(outNode)
+         ))
+   }
+
+}

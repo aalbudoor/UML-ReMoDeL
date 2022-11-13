@@ -1,0 +1,26 @@
+transform GraphToInTree : Trees {
+
+   metamodel source : Graph
+   metamodel target : InTree
+   
+   mapping graphToInTree(graph : Graph_Graph) : InTree_Tree {
+      create InTree_Tree(
+         nodes := graph.vertices.collect(vertex |
+            vertexToInNode(vertex, graph)
+         )
+      )
+   }
+   
+   mapping vertexToInNode(vertex : Graph_Vertex, graph : Graph_Graph) : InTree_Node {
+      if vertex = graph.root
+         then create InTree_Node(
+            label := vertex.label
+         )
+         else create InTree_Node(
+            label := vertex.label, 
+            parent := vertexToInNode(graph.edges.detect(edge | 
+               edge.source = vertex).target, graph)
+         )
+   }
+
+}

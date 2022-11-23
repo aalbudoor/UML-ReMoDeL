@@ -1,9 +1,7 @@
 package rm.cd;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import meta.umlcd.BasicType;
 import meta.umlcd.ClassType;
@@ -19,8 +17,9 @@ import uk.ac.sheffield.jast.xpath.XPath;
  * CLass responsible for converting document to diagram 
  */
 public class DocumentToDiagramConverter {
-	
-	HashMap<String, BasicType> basicTypes = new HashMap<>();
+
+	HashMap<String, BasicType> basicTypesMap = new HashMap<>();
+	HashMap<String, ClassType> classTypesMap = new HashMap<>();
 
 	public Diagram convert(Document document) {
 
@@ -38,7 +37,7 @@ public class DocumentToDiagramConverter {
 	 * @param diagram
 	 * @param document
 	 * 
-	 * Method sets class types for a given document
+	 *                 Method sets class types for a given document
 	 * 
 	 */
 	private void setClassTypes(Diagram diagram, Document document) {
@@ -47,7 +46,8 @@ public class DocumentToDiagramConverter {
 		for (Content content : classTypes) {
 			Element classElem = (Element) content;
 			String className = classElem.getValue("name");
-			
+			String id = classElem.getValue("id");
+
 //			String className = getValue(content.getAttributes(), "name");
 			ClassType classType = new ClassType();
 			classType.setName(className);
@@ -59,8 +59,7 @@ public class DocumentToDiagramConverter {
 				attrib.setType(type);
 				classType.getAttributes().add(attrib);
 			}
-			
-			
+
 			for (Content classContent : content.getContents()) {
 				if (classContent.getIdentifier().equals("ownedAttribute")) {
 					setAttributes(classContent, classType);
@@ -70,23 +69,23 @@ public class DocumentToDiagramConverter {
 					setOperations(classContent, classType);
 				}
 			}
-
+			classTypesMap.put(id, classType);
 			diagram.getClassTypes().add(classType);
 		}
 
 	}
-	
+
 	private BasicType getBasicType(Element elem) {
 		String hrefValue = elem.getValue("href");
 		String typeName = hrefValue.split("#")[1];
-		return basicTypes.get(typeName);
+		return basicTypesMap.get(typeName);
 	}
 
 	/**
 	 * @param classContent
 	 * @param classType
 	 * 
-	 * Method sets Attribute for a given class Type
+	 *                     Method sets Attribute for a given class Type
 	 */
 	private void setAttributes(Content classContent, ClassType classType) {
 		meta.umlcd.Attribute attr = new meta.umlcd.Attribute();
@@ -114,9 +113,9 @@ public class DocumentToDiagramConverter {
 
 	/**
 	 * @param classContent
-	 * @param classType    
-	 * 					
-	 * Method sets Operations for a given ClassType
+	 * @param classType
+	 * 
+	 *                     Method sets Operations for a given ClassType
 	 */
 	private void setOperations(Content classContent, ClassType classType) {
 
@@ -149,20 +148,23 @@ public class DocumentToDiagramConverter {
 	 * @param diagram
 	 * @param document
 	 * 
-	 * Method sets basic type for given document
+	 *                 Method sets basic type for given document
 	 */
 	private void setBasicTypes(Diagram diagram, Document document) {
 		XPath findBasicTypes = new XPath("//type[@xmi:type=uml:PrimitiveType]/@href");
+
 		List<Content> basicTypes = findBasicTypes.match(document);
-		Set<String> basicTypeNames = new HashSet<>();
+
 		for (Content content : basicTypes) {
 			Attribute attribute = (Attribute) content;
 			String basicTypeName = attribute.getValue().split("#")[1];
-			if (!basicTypeNames.contains(basicTypeName)) {
-				BasicType basicType1 = new BasicType();
-				basicType1.setName(basicTypeName);
+			BasicType basicType1 = new BasicType();
+			basicType1.setName(basicTypeName);
+			BasicType result = basicTypesMap.put(basicTypeName, basicType1);
+			if (result == null) {
+
 				diagram.getBasicTypes().add(basicType1);
-				basicTypeNames.add(basicTypeName);
+
 			}
 
 		}
@@ -174,12 +176,12 @@ public class DocumentToDiagramConverter {
 	 * @param attributeName
 	 * @return
 	 * 
-	 * Method returns attribute value for the given name
+	 *         Method returns attribute value for the given name
 	 */
 	private String getValue(List<Attribute> attributes, String attributeName) {
 		for (uk.ac.sheffield.jast.xml.Attribute attribute : attributes) {
 			if (attribute.getName().equals(attributeName)) {
-				return attribute.getValue();	//Returns the value of this Attribute.
+				return attribute.getValue(); // Returns the value of this Attribute.
 			}
 		}
 		return "";

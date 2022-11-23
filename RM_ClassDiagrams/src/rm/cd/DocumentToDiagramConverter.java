@@ -1,5 +1,6 @@
 package rm.cd;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,12 +12,15 @@ import meta.umlcd.Type;
 import uk.ac.sheffield.jast.xml.Attribute;
 import uk.ac.sheffield.jast.xml.Content;
 import uk.ac.sheffield.jast.xml.Document;
+import uk.ac.sheffield.jast.xml.Element;
 import uk.ac.sheffield.jast.xpath.XPath;
 
 /*
  * CLass responsible for converting document to diagram 
  */
 public class DocumentToDiagramConverter {
+	
+	HashMap<String, BasicType> basicTypes = new HashMap<>();
 
 	public Diagram convert(Document document) {
 
@@ -34,16 +38,29 @@ public class DocumentToDiagramConverter {
 	 * @param diagram
 	 * @param document
 	 * 
-	 *                 Method: sets class types for a given document
+	 * Method sets class types for a given document
 	 * 
 	 */
 	private void setClassTypes(Diagram diagram, Document document) {
 		XPath findClassTypes = new XPath("/uml:Model/packagedElement/packagedElement[@xmi:type=uml:Class]");
 		List<Content> classTypes = findClassTypes.match(document);
 		for (Content content : classTypes) {
-			String className = getValue(content.getAttributes(), "name");
+			Element classElem = (Element) content;
+			String className = classElem.getValue("name");
+			
+//			String className = getValue(content.getAttributes(), "name");
 			ClassType classType = new ClassType();
 			classType.setName(className);
+			for (Element attribElem : classElem.getChildren("ownedAttribute")) {
+				meta.umlcd.Attribute attrib = new meta.umlcd.Attribute();
+				attrib.setName(attribElem.getValue("name"));
+				Element typeElem = attribElem.getChild("type");
+				BasicType type = getBasicType(typeElem);
+				attrib.setType(type);
+				classType.getAttributes().add(attrib);
+			}
+			
+			
 			for (Content classContent : content.getContents()) {
 				if (classContent.getIdentifier().equals("ownedAttribute")) {
 					setAttributes(classContent, classType);
@@ -58,12 +75,18 @@ public class DocumentToDiagramConverter {
 		}
 
 	}
+	
+	private BasicType getBasicType(Element elem) {
+		String hrefValue = elem.getValue("href");
+		String typeName = hrefValue.split("#")[1];
+		return basicTypes.get(typeName);
+	}
 
 	/**
 	 * @param classContent
 	 * @param classType
 	 * 
-	 *                     method sets Attribute for a given class Type
+	 * Method sets Attribute for a given class Type
 	 */
 	private void setAttributes(Content classContent, ClassType classType) {
 		meta.umlcd.Attribute attr = new meta.umlcd.Attribute();
@@ -91,7 +114,9 @@ public class DocumentToDiagramConverter {
 
 	/**
 	 * @param classContent
-	 * @param classType    Method sets Operations for a given ClassType
+	 * @param classType    
+	 * 					
+	 * Method sets Operations for a given ClassType
 	 */
 	private void setOperations(Content classContent, ClassType classType) {
 
@@ -107,8 +132,6 @@ public class DocumentToDiagramConverter {
 
 			for (Content typeContent : layerTypeContent.getContents()) {
 				String basicTypeValue = getValue(typeContent.getAttributes(), "href");
-
-				//For the path String this filers out the 0 index and replaces with empty string, second index is taken for href
 				if (basicTypeValue != null && !basicTypeValue.equals("")) {
 					String basicTypeName = basicTypeValue.split("#")[1];
 					Type operationType = new Type();
@@ -126,7 +149,7 @@ public class DocumentToDiagramConverter {
 	 * @param diagram
 	 * @param document
 	 * 
-	 *                 method: sets basic type for given document
+	 * Method sets basic type for given document
 	 */
 	private void setBasicTypes(Diagram diagram, Document document) {
 		XPath findBasicTypes = new XPath("//type[@xmi:type=uml:PrimitiveType]/@href");
@@ -151,12 +174,12 @@ public class DocumentToDiagramConverter {
 	 * @param attributeName
 	 * @return
 	 * 
-	 *         Method returns attribute value for the given name
+	 * Method returns attribute value for the given name
 	 */
 	private String getValue(List<Attribute> attributes, String attributeName) {
 		for (uk.ac.sheffield.jast.xml.Attribute attribute : attributes) {
 			if (attribute.getName().equals(attributeName)) {
-				return attribute.getValue();
+				return attribute.getValue();	//Returns the value of this Attribute.
 			}
 		}
 		return "";

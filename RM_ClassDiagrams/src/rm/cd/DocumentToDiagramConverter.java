@@ -19,7 +19,7 @@ import uk.ac.sheffield.jast.xpath.XPath;
 public class DocumentToDiagramConverter {
 
 	HashMap<String, BasicType> basicTypesMap = new HashMap<>();
-	HashMap<String, ClassType> classTypesMap = new HashMap<>();
+	public HashMap<String, ClassType> classTypesMap = new HashMap<>();
 
 	public Diagram convert(Document document) {
 
@@ -178,7 +178,7 @@ public class DocumentToDiagramConverter {
 	 * 
 	 *         Method returns attribute value for the given name
 	 */
-	private String getValue(List<Attribute> attributes, String attributeName) {
+	public String getValue(List<Attribute> attributes, String attributeName) {
 		for (uk.ac.sheffield.jast.xml.Attribute attribute : attributes) {
 			if (attribute.getName().equals(attributeName)) {
 				return attribute.getValue(); // Returns the value of this Attribute.

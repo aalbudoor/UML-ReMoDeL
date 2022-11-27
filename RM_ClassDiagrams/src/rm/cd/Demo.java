@@ -20,7 +20,13 @@ public class Demo {
 			DocumentToDiagramConverter converter = new DocumentToDiagramConverter();
 
 			Diagram diagram = converter.convert(document);
-
+			File associationFile = new File("xmi/RM_CD4.xml");
+			XMLReader reader1 = new XMLReader(associationFile); 
+			Document associationDocument = reader1.readDocument();
+			DirectedAssociationConverter directedAssociation = new DirectedAssociationConverter(converter);
+			directedAssociation.addAssociationData(diagram, associationDocument);
+			
+			reader1.close();
 			reader.close();
 
 		} catch (IOException ex) {

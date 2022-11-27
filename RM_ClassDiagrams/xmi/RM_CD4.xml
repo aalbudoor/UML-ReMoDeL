@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ciWdUG03Ee2uE6npmAMGEw" name="RM_CD4">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_cj0c8G03Ee2uE6npmAMGEw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_fPCGAG03Ee2uE6npmAMGEw" name="Model2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_hqzk4G03Ee2uE6npmAMGEw" name="Member" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_iK8dgG03Ee2uE6npmAMGEw" name="Gym"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dlqfAG04Ee2uE6npmAMGEw" name="directed_Association_GymToMember" memberEnd="_dlsUMG04Ee2uE6npmAMGEw _dlsUM204Ee2uE6npmAMGEw" navigableOwnedEnd="_dlsUMG04Ee2uE6npmAMGEw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dlrtIG04Ee2uE6npmAMGEw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dlrtIW04Ee2uE6npmAMGEw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dlsUM204Ee2uE6npmAMGEw" name="gym" type="_iK8dgG03Ee2uE6npmAMGEw" association="_dlqfAG04Ee2uE6npmAMGEw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dlsUMG04Ee2uE6npmAMGEw" name="member" type="_hqzk4G03Ee2uE6npmAMGEw" association="_dlqfAG04Ee2uE6npmAMGEw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dlsUMW04Ee2uE6npmAMGEw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dlsUMm04Ee2uE6npmAMGEw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

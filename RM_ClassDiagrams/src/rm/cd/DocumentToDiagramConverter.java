@@ -51,14 +51,14 @@ public class DocumentToDiagramConverter {
 //			String className = getValue(content.getAttributes(), "name");
 			ClassType classType = new ClassType();
 			classType.setName(className);
-			for (Element attribElem : classElem.getChildren("ownedAttribute")) {
-				meta.umlcd.Attribute attrib = new meta.umlcd.Attribute();
-				attrib.setName(attribElem.getValue("name"));
-				Element typeElem = attribElem.getChild("type");
-				BasicType type = getBasicType(typeElem);
-				attrib.setType(type);
-				classType.getAttributes().add(attrib);
-			}
+//			for (Element attribElem : classElem.getChildren("ownedAttribute")) {
+//				meta.umlcd.Attribute attrib = new meta.umlcd.Attribute();
+//				attrib.setName(attribElem.getValue("name"));
+//				Element typeElem = attribElem.getChild("type");
+//				BasicType type = getBasicType(typeElem);
+//				attrib.setType(type);
+//				classType.getAttributes().add(attrib);
+//			}
 
 			for (Content classContent : content.getContents()) {
 				if (classContent.getIdentifier().equals("ownedAttribute")) {

@@ -13,7 +13,7 @@ public class Demo {
 	public static void main(String[] args) {
 		try {
 
-			File file = new File("xmi/RM_CD3.xml"); // Or whatever file
+			File file = new File("xmi/RM_CD4.xml"); // Or whatever file
 			XMLReader reader = new XMLReader(file); // Uses UTF-8
 			Document document = reader.readDocument();
 
@@ -23,7 +23,7 @@ public class Demo {
 			File associationFile = new File("xmi/RM_CD4.xml");
 			XMLReader reader1 = new XMLReader(associationFile); 
 			Document associationDocument = reader1.readDocument();
-			DirectedAssociationConverter directedAssociation = new DirectedAssociationConverter(converter);
+			AssociationConverter directedAssociation = new AssociationConverter(converter);
 			directedAssociation.addAssociationData(diagram, associationDocument);
 			
 			reader1.close();

@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_e2XYkGIZEe2I16SVLvhm0g" name="RM_CD3">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_e3Z6YGIZEe2I16SVLvhm0g">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Xgty0H53Ee2ISZsK9hRZlA" name="RM_CD3">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_XhRMcH53Ee2ISZsK9hRZlA">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
-  <packagedElement xmi:type="uml:Model" xmi:id="_2eA_UGIZEe2I16SVLvhm0g" name="MemberDuplicateModel" URI="">
-    <packagedElement xmi:type="uml:Class" xmi:id="_KSHb8GIaEe2I16SVLvhm0g" name="Member" visibility="public">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_RikKwGIaEe2I16SVLvhm0g" name="firstName" visibility="public">
+  <packagedElement xmi:type="uml:Model" xmi:id="_bLZ74H53Ee2ISZsK9hRZlA" name="Model2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_cLNMAH53Ee2ISZsK9hRZlA" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dWDOgH53Ee2ISZsK9hRZlA" name="firstName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_qbnvAGIaEe2I16SVLvhm0g"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_lPOxQH53Ee2ISZsK9hRZlA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2RkvsGIiEe2I16SVLvhm0g" name="lastName" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dnHJUH53Ee2ISZsK9hRZlA" name="lastName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="__EaeUGIiEe2I16SVLvhm0g"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_opMWsH53Ee2ISZsK9hRZlA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2iAYYGIiEe2I16SVLvhm0g" name="isActive">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_HT0vwGIjEe2I16SVLvhm0g"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2ydPMGIiEe2I16SVLvhm0g" name="age" visibility="package">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vaz2wGIjEe2I16SVLvhm0g"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_3jviMGIiEe2I16SVLvhm0g" name="weight">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d1wpUH53Ee2ISZsK9hRZlA" name="weight">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        <defaultValue xmi:type="uml:LiteralReal" xmi:id="_1ajysGIjEe2I16SVLvhm0g"/>
+        <defaultValue xmi:type="uml:LiteralReal" xmi:id="_r2Iz0H53Ee2ISZsK9hRZlA"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_vUdtQGIaEe2I16SVLvhm0g" name="getFirstName">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_vZOQcGIlEe2I16SVLvhm0g"  name="firstName" direction="return">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eGVb8H53Ee2ISZsK9hRZlA" name="age">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_t3iD0H53Ee2ISZsK9hRZlA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eWIygH53Ee2ISZsK9hRZlA" name="isActive">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_whmdYH53Ee2ISZsK9hRZlA"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_fZRDcH53Ee2ISZsK9hRZlA" name="getFirstName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_91YAkH53Ee2ISZsK9hRZlA" name="returnFirstName" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_zdk2sGIlEe2I16SVLvhm0g"/>
-        </ownedParameter> 
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_01d-EGIiEe2I16SVLvhm0g" name="getLastName">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RdUdYGIlEe2I16SVLvhm0g" name="lastName" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_RdUdYWIlEe2I16SVLvhm0g"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_91YAkX53Ee2ISZsK9hRZlA"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_1Ute0GIiEe2I16SVLvhm0g" name="setWeight" visibility="public">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VL1hEGImEe2I16SVLvhm0g" name="weight">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_gjvSgH53Ee2ISZsK9hRZlA" name="getLastName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BrIxMH54Ee2ISZsK9hRZlA" name="returnLastName" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_BrIxMX54Ee2ISZsK9hRZlA"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_g3ZOUH53Ee2ISZsK9hRZlA" name="setWeight">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_GXH_MH54Ee2ISZsK9hRZlA" name="inWeight">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-          <defaultValue xmi:type="uml:LiteralReal" xmi:id="_VL1hEWImEe2I16SVLvhm0g"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_GXH_MX54Ee2ISZsK9hRZlA"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>

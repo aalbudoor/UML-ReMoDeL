@@ -10,11 +10,11 @@ import uk.ac.sheffield.jast.xml.Content;
 import uk.ac.sheffield.jast.xml.Document;
 import uk.ac.sheffield.jast.xpath.XPath;
 
-public class DirectedAssociationConverter {
+public class AssociationConverter {
 
 	DocumentToDiagramConverter parentConverter;
 
-	public DirectedAssociationConverter(DocumentToDiagramConverter parentConverter) {
+	public AssociationConverter(DocumentToDiagramConverter parentConverter) {
 		super();
 		this.parentConverter = parentConverter;
 	}
@@ -25,16 +25,14 @@ public class DirectedAssociationConverter {
 		List<Content> classTypes = findClassTypes.match(associationDocument);
 		for (Content content : classTypes) {
 
-			EndRole endRole1 = new EndRole();
 			ClassType classType1 = new ClassType();
 			String id = parentConverter.getValue(content.getAttributes(), "id");
 			String name = parentConverter.getValue(content.getAttributes(), "name");
 			classType1.setName(name);
 			parentConverter.classTypesMap.put(id, classType1);
-			endRole1.setType(classType1);
 
 		}
-
+		String target = null;
 		XPath findDirectedAssociation = new XPath("/uml:Model/packagedElement[@xmi:type=uml:Association]");
 		List<Content> directedAssociation = findDirectedAssociation.match(associationDocument);
 
@@ -42,11 +40,35 @@ public class DirectedAssociationConverter {
 
 		for (Content content : directedAssociation) {
 
-			String id = parentConverter.getValue(content.getAttributes(), "id");
 			String name = parentConverter.getValue(content.getAttributes(), "name");
+			target =parentConverter.getValue(content.getAttributes(), "navigableOwnedEnd");
 			association.setName(name);
 
 		}
+		
+		XPath findEndRoles = new XPath("/uml:Model/packagedElement/ownedEnd[@xmi:type=uml:Property]");
+		List<Content> endRoles = findEndRoles.match(associationDocument);
+		for (Content content : endRoles) {
+
+			EndRole endRole1 = new EndRole();
+			String id = parentConverter.getValue(content.getAttributes(), "id");
+			String type = parentConverter.getValue(content.getAttributes(), "type");
+			String name = parentConverter.getValue(content.getAttributes(), "name");
+			endRole1.setName(name);
+			endRole1.setType(parentConverter.classTypesMap.get(type));
+			
+			if (target.equals(id)) {
+				association.setTarget(endRole1);
+				
+				
+			} else {
+				association.setSource(endRole1);
+			}
+
+		}
+		
+
+	
 
 		diagram.getAssociations().add(association);
 

@@ -13,16 +13,16 @@ import uk.ac.sheffield.jast.xml.Content;
 import uk.ac.sheffield.jast.xml.Document;
 import uk.ac.sheffield.jast.xpath.XPath;
 
-public class AssociationConverter {
+public class RelationshipConverter {
 
 	DocumentToDiagramConverter parentConverter;
 
-	public AssociationConverter(DocumentToDiagramConverter parentConverter) {
+	public RelationshipConverter(DocumentToDiagramConverter parentConverter) {
 		super();
 		this.parentConverter = parentConverter;
 	}
 
-	public void addAssociationData(Diagram diagram, Document associationDocument) {
+	public void addRelationshipData(Diagram diagram, Document associationDocument) {
 
 		XPath findClassTypes = new XPath("/uml:Model/packagedElement/packagedElement[@xmi:type=uml:Class]");
 		List<Content> classTypes = findClassTypes.match(associationDocument);
@@ -87,6 +87,13 @@ public class AssociationConverter {
 
 			String name = parentConverter.getValue(content.getAttributes(), "name");
 			target =parentConverter.getValue(content.getAttributes(), "navigableOwnedEnd");
+			
+			String[] targetParts = target.split(" ");
+			
+			if (targetParts.length > 1) {
+				target = targetParts[0];
+			}
+			
 			relationship.setName(name);
 
 		}

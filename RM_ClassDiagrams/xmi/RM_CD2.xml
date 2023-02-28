@@ -5,11 +5,16 @@
   </packageImport>
   <packagedElement xmi:type="uml:Model" xmi:id="_MSpO8FcGEe2Lh7ARxPB2PQ" name="MemberModel">
     <packagedElement xmi:type="uml:Class" xmi:id="_Q8K-0FcGEe2Lh7ARxPB2PQ" name="Member" visibility="package">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_FRqqEFcHEe2Lh7ARxPB2PQ" name="firstName" visibility="package">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FRqqEFcHEe2Lh7ARxPB2PQ" name="firstName" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:InstanceValue" xmi:id="_N0ltYFcHEe2Lh7ARxPB2PQ"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_aXslEHjnEe2FDMvkz1HZVw"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_vM81sFcGEe2Lh7ARxPB2PQ" name="getName" visibility="private"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vM81sFcGEe2Lh7ARxPB2PQ" name="getName" visibility="public" concurrency="concurrent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wqvmoHi2Ee2FDMvkz1HZVw" name="name" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_wqvmoXi2Ee2FDMvkz1HZVw"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
   </packagedElement>
 </uml:Model>

@@ -111,7 +111,12 @@ public class RelationshipConverter {
 				relationship.setSource(endRole1);
 			}
 			
-			if (target.equals("") && relationship.getTarget() == null && !relationship.getSource().equals(endRole1)) { //becasue taget was showing empty string in case of non-directed graphs
+			if (sourceId != null && !sourceId.equals(type)) {
+				relationship.setTarget(endRole1);
+				
+			}
+			
+			if (target.equals("") && relationship.getTarget() == null && relationship.getSource() != null && !relationship.getSource().equals(endRole1)) { //becasue taget was showing empty string in case of non-directed graphs
 				relationship.setTarget(endRole1);
 				
 			}
@@ -119,7 +124,9 @@ public class RelationshipConverter {
 				relationship.setTarget(endRole1);
 				
 				
-			} else if (sourceId == null){
+			} 
+			
+			if (sourceId == null && relationship.getSource() == null){
 				relationship.setSource(endRole1);
 			}
 

@@ -23,8 +23,8 @@ public class Demo {
 			File associationFile = new File("xmi/RM_CD9.xml");
 			XMLReader reader1 = new XMLReader(associationFile); 
 			Document associationDocument = reader1.readDocument();
-			RelationshipConverter relationshipConverter = new RelationshipConverter(converter);
-			relationshipConverter.addRelationshipData(diagram, associationDocument);
+			//RelationshipConverter relationshipConverter = new RelationshipConverter(converter);
+			//relationshipConverter.addRelationshipData(diagram, associationDocument);
 			
 			GeneralizationConverter generalizationConverter = new GeneralizationConverter(converter);
 			generalizationConverter.addGeneralizationData(diagram, associationDocument);

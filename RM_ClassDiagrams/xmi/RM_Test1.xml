@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_qvT-ML27Ee2L77iDHFKlDg" name="RM_Test1">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_qwoz4L27Ee2L77iDHFKlDg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ovzkwMBREe2oPp2entE7qA" name="Class2"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_pOdPoMBREe2oPp2entE7qA" name="Class3"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_feJ5kMBZEe2oPp2entE7qA" memberEnd="_feKgosBZEe2oPp2entE7qA _feLHsMBZEe2oPp2entE7qA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_feKgoMBZEe2oPp2entE7qA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_feKgocBZEe2oPp2entE7qA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_feKgosBZEe2oPp2entE7qA" name="class3" type="_pOdPoMBREe2oPp2entE7qA" association="_feJ5kMBZEe2oPp2entE7qA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_feLHsMBZEe2oPp2entE7qA" name="class2" type="_ovzkwMBREe2oPp2entE7qA" aggregation="shared" association="_feJ5kMBZEe2oPp2entE7qA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jW9XIMBZEe2oPp2entE7qA" name="Class5"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_llcn8MBZEe2oPp2entE7qA" memberEnd="_lldPAcBZEe2oPp2entE7qA _lld2EMBZEe2oPp2entE7qA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_llcn8cBZEe2oPp2entE7qA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lldPAMBZEe2oPp2entE7qA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_lldPAcBZEe2oPp2entE7qA" name="class5" type="_jW9XIMBZEe2oPp2entE7qA" association="_llcn8MBZEe2oPp2entE7qA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_lld2EMBZEe2oPp2entE7qA" name="class3" type="_pOdPoMBREe2oPp2entE7qA" aggregation="composite" association="_llcn8MBZEe2oPp2entE7qA"/>
+  </packagedElement>
+</uml:Model>

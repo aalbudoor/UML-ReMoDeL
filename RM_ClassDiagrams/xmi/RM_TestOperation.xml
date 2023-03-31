@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_4FmPgKsHEe2bedp2tZ3wQA" name="RM_CDRanges">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_4Gb9AKsHEe2bedp2tZ3wQA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_unbPcKsIEe2bedp2tZ3wQA" name="Model2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_LmFXIKsJEe2bedp2tZ3wQA" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4z3R8rh0Ee2SSfAdXIYdog" name="class2" type="_MDS3kKsJEe2bedp2tZ3wQA" aggregation="composite" association="_4z2q4Lh0Ee2SSfAdXIYdog">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4z35ALh0Ee2SSfAdXIYdog"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4z35Abh0Ee2SSfAdXIYdog" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_8uhxMLJUEe2BjIFx3AW1zw" name="Operation1">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_GQf2sLJVEe2BjIFx3AW1zw" type="_MDS3kKsJEe2bedp2tZ3wQA" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MDS3kKsJEe2bedp2tZ3wQA" name="Class2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4z2q4Lh0Ee2SSfAdXIYdog" memberEnd="_4z3R8rh0Ee2SSfAdXIYdog _4z4gELh0Ee2SSfAdXIYdog">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4z3R8Lh0Ee2SSfAdXIYdog" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4z3R8bh0Ee2SSfAdXIYdog" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4z4gELh0Ee2SSfAdXIYdog" name="class1" type="_LmFXIKsJEe2bedp2tZ3wQA" association="_4z2q4Lh0Ee2SSfAdXIYdog"/>
+  </packagedElement>
+</uml:Model>

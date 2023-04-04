@@ -12,14 +12,14 @@ public class Demov2 {
 	public static void main(String[] args) {
 		try {
 
-			File file = new File("xmi/RM_CDFinal.xml"); // Or whatever file
+			File file = new File("xmi/RM_CD2.xml"); // Or whatever file
 			XMLReader reader = new XMLReader(file); // Uses UTF-8
 			Document document = reader.readDocument();
 
 			DocumentToDiagramConverter converter = new DocumentToDiagramConverter();
 
 			Diagram diagram = converter.convert(document);
-			File associationFile = new File("xmi/RM_CDFinal.xml");
+			File associationFile = new File("xmi/RM_CD2.xml");
 			XMLReader reader1 = new XMLReader(associationFile); 
 			Document associationDocument = reader1.readDocument();
 			//comment when extracting generalisation

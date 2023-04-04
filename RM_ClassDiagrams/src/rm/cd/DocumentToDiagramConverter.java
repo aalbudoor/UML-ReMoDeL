@@ -98,11 +98,11 @@ public class DocumentToDiagramConverter {
 	 */
 	private void setAttributes(Content classContent, ClassType classType) {
 		meta.umlcd.Attribute attr = new meta.umlcd.Attribute();
-		String typeValue = getValue(classContent.getAttributes(), "type");
+		String typeValue = getValue(classContent.getAttributes(), "type"); //?
 		String name = getValue(classContent.getAttributes(), "name");
-		Type type = new Type();
-		type.setName(typeValue);
-		attr.setType(type);
+		Type type = new Type(); //?
+		type.setName(typeValue);//?
+		attr.setType(type);//?
 		attr.setName(name);
 
 		for (Content typeContent : classContent.getContents()) {

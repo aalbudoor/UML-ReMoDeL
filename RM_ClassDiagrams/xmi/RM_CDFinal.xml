@@ -9,10 +9,6 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L_7-Gc-KEe2BNaVMlPpcbQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L_7-ns-KEe2BNaVMlPpcbQ" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_4a0iUM-KEe2BNaVMlPpcbQ" name="isActive">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_4a0iUc-KEe2BNaVMlPpcbQ"/>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_4a2-kM-KEe2BNaVMlPpcbQ" name="weight">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <defaultValue xmi:type="uml:LiteralReal" xmi:id="_4a2-kc-KEe2BNaVMlPpcbQ"/>

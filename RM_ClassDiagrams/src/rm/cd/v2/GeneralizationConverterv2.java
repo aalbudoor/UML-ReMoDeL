@@ -1,4 +1,4 @@
-package rm.cd;
+package rm.cd.v2;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +20,9 @@ public class GeneralizationConverterv2 extends RelationshipConverterv2{
 	}
 	
 	
+	/**
+	 * @param document
+	 */
 	public void findAllGeneralization(Document document) {
 		Generalisation generalisation = null;
 		EndRole source= null;

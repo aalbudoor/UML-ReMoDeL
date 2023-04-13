@@ -16,8 +16,12 @@
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_ISTh0Mw9Ee2BNaVMlPpcbQ" name="setClass">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KWfKoMw-Ee2BNaVMlPpcbQ" name="object" type="_GSTY8Mw9Ee2BNaVMlPpcbQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KWfKoMw-Ee2BNaVMlPpcbQ" name="classType" type="_-FKjgM8dEe2BNaVMlPpcbQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vmI6ENQ_Ee2GbMNhqqApLg" name="getClass">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_3p1DsNQ_Ee2GbMNhqqApLg" type="_-FKjgM8dEe2BNaVMlPpcbQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-FKjgM8dEe2BNaVMlPpcbQ" name="Class2"/>
   </packagedElement>
 </uml:Model>

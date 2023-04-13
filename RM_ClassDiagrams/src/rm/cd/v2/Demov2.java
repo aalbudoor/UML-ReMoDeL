@@ -1,9 +1,10 @@
-package rm.cd;
+package rm.cd.v2;
 
 import java.io.File;
 import java.io.IOException;
 
 import meta.umlcd.Diagram;
+import remodel.meta.Model;
 import uk.ac.sheffield.jast.XMLReader;
 import uk.ac.sheffield.jast.xml.Document;
 
@@ -12,25 +13,31 @@ public class Demov2 {
 	public static void main(String[] args) {
 		try {
 
-			File file = new File("xmi/RM_CD2.xml"); // Or whatever file
+			File file = new File("xmi/RM_CD4.xml"); // Or whatever file
 			XMLReader reader = new XMLReader(file); // Uses UTF-8
 			Document document = reader.readDocument();
 
 			DocumentToDiagramConverter converter = new DocumentToDiagramConverter();
 
 			Diagram diagram = converter.convert(document);
-			File associationFile = new File("xmi/RM_CD2.xml");
-			XMLReader reader1 = new XMLReader(associationFile); 
+			File associationFile = new File("xmi/RM_CD4.xml");
+			XMLReader reader1 = new XMLReader(associationFile);
 			Document associationDocument = reader1.readDocument();
-			//comment when extracting generalisation
-			RelationshipConverterv2 relationshipConverter = new RelationshipConverterv2(diagram, converter.classTypesMap);
+			// comment when extracting generalisation
+			RelationshipConverterv2 relationshipConverter = new RelationshipConverterv2(diagram,
+					converter.classTypesMap);
 			relationshipConverter.findAllAssociations(associationDocument);
-			
-			GeneralizationConverterv2 generalizationConverter = new GeneralizationConverterv2(diagram, converter.classTypesMap);
+
+			GeneralizationConverterv2 generalizationConverter = new GeneralizationConverterv2(diagram,
+					converter.classTypesMap);
 			generalizationConverter.findAllGeneralization(document);
-			
+
 			reader1.close();
 			reader.close();
+
+//			Model<Diagram> model = new Model<>("cd1", "UmlCd", diagram);
+//			File outputFile = new File("models/cd1.mod");
+//			model.write(outputFile);
 
 		} catch (IOException ex) {
 

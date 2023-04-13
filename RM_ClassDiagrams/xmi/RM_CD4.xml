@@ -5,16 +5,17 @@
   </packageImport>
   <packagedElement xmi:type="uml:Model" xmi:id="_fPCGAG03Ee2uE6npmAMGEw" name="Model2">
     <packagedElement xmi:type="uml:Class" xmi:id="_hqzk4G03Ee2uE6npmAMGEw" name="Member" visibility="public"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_iK8dgG03Ee2uE6npmAMGEw" name="Gym"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_lLdJgL26Ee2L77iDHFKlDg" name="Class2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8380AL26Ee2L77iDHFKlDg" name="member" type="_hqzk4G03Ee2uE6npmAMGEw" association="_835JoL26Ee2L77iDHFKlDg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_839bEL26Ee2L77iDHFKlDg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_839bEb26Ee2L77iDHFKlDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_dlqfAG04Ee2uE6npmAMGEw" name="directed_Association_GymToMember" memberEnd="_dlsUMG04Ee2uE6npmAMGEw _dlsUM204Ee2uE6npmAMGEw" navigableOwnedEnd="_dlsUMG04Ee2uE6npmAMGEw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dlrtIG04Ee2uE6npmAMGEw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dlrtIW04Ee2uE6npmAMGEw" key="nature" value="UML_Nature"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_835JoL26Ee2L77iDHFKlDg" memberEnd="_8380AL26Ee2L77iDHFKlDg _83-CIL26Ee2L77iDHFKlDg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_838M8L26Ee2L77iDHFKlDg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_838M8b26Ee2L77iDHFKlDg" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_dlsUM204Ee2uE6npmAMGEw" name="gym" type="_iK8dgG03Ee2uE6npmAMGEw" association="_dlqfAG04Ee2uE6npmAMGEw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_dlsUMG04Ee2uE6npmAMGEw" name="member" type="_hqzk4G03Ee2uE6npmAMGEw" association="_dlqfAG04Ee2uE6npmAMGEw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dlsUMW04Ee2uE6npmAMGEw"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dlsUMm04Ee2uE6npmAMGEw" value="1"/>
-    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_83-CIL26Ee2L77iDHFKlDg" name="class2" type="_lLdJgL26Ee2L77iDHFKlDg" association="_835JoL26Ee2L77iDHFKlDg"/>
   </packagedElement>
 </uml:Model>

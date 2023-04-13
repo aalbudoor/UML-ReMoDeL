@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ad0Q4NKcEe2GbMNhqqApLg" name="RM_TestCase4">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_aeTZENKcEe2GbMNhqqApLg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_K7K0kNXMEe2GbMNhqqApLg" name="Model3">
+    <packagedElement xmi:type="uml:Class" xmi:id="_dnyX4NKvEe2GbMNhqqApLg" name="Class3">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_DPs9sNXMEe2GbMNhqqApLg" name="isStudent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JJ4dINXMEe2GbMNhqqApLg" name="student">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

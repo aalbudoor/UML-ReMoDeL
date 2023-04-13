@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_pT2swI2rEe26E53Gwt9_SA" name="RM_CD9">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_pUZfUI2rEe26E53Gwt9_SA">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_B222UMtWEe2BNaVMlPpcbQ" name="RM_Test9">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_B4LE8MtWEe2BNaVMlPpcbQ">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
-  <packagedElement xmi:type="uml:Model" xmi:id="_uceMYI2rEe26E53Gwt9_SA" name="Model2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_v5zGAI2rEe26E53Gwt9_SA" name="Class1"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_winZgI2rEe26E53Gwt9_SA" name="Class2">
-      <generalization xmi:type="uml:Generalization" xmi:id="_yWoU0I2rEe26E53Gwt9_SA" general="_v5zGAI2rEe26E53Gwt9_SA"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_DpEa0MtWEe2BNaVMlPpcbQ" name="Model2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_E2nMAMtWEe2BNaVMlPpcbQ" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T_8wEtjzEe2GbMNhqqApLg" name="class2" type="_Fh9PEMtWEe2BNaVMlPpcbQ" aggregation="composite" association="_T_8JANjzEe2GbMNhqqApLg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T_9XINjzEe2GbMNhqqApLg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T_9XIdjzEe2GbMNhqqApLg" value="1"/>
+      </ownedAttribute>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Fh9PEMtWEe2BNaVMlPpcbQ" name="Class2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_T_8JANjzEe2GbMNhqqApLg" memberEnd="_T_8wEtjzEe2GbMNhqqApLg _T_9XItjzEe2GbMNhqqApLg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_T_8wENjzEe2GbMNhqqApLg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T_8wEdjzEe2GbMNhqqApLg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_T_9XItjzEe2GbMNhqqApLg" name="class1" type="_E2nMAMtWEe2BNaVMlPpcbQ" association="_T_8JANjzEe2GbMNhqqApLg"/>
   </packagedElement>
 </uml:Model>

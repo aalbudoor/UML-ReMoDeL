@@ -11,11 +11,23 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Y-q1YMWCEe2Y4ZBh48vc-Q" name="Class2"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_trroENZ6Ee2GbMNhqqApLg" name="Class3">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_u-TGgtZ6Ee2GbMNhqqApLg" name="class2" type="_Y-q1YMWCEe2Y4ZBh48vc-Q" association="_u-SfcNZ6Ee2GbMNhqqApLg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u-TtkNZ6Ee2GbMNhqqApLg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u-TtkdZ6Ee2GbMNhqqApLg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_aVJgIMWCEe2Y4ZBh48vc-Q" memberEnd="_aVLVUMWCEe2Y4ZBh48vc-Q _aVL8YMWCEe2Y4ZBh48vc-Q">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aVKuQMWCEe2Y4ZBh48vc-Q" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aVKuQcWCEe2Y4ZBh48vc-Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_aVL8YMWCEe2Y4ZBh48vc-Q" name="class1" type="_Yprc0MWCEe2Y4ZBh48vc-Q" association="_aVJgIMWCEe2Y4ZBh48vc-Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_u-SfcNZ6Ee2GbMNhqqApLg" memberEnd="_u-TGgtZ6Ee2GbMNhqqApLg _u-TtktZ6Ee2GbMNhqqApLg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_u-TGgNZ6Ee2GbMNhqqApLg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_u-TGgdZ6Ee2GbMNhqqApLg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_u-TtktZ6Ee2GbMNhqqApLg" name="class3" type="_trroENZ6Ee2GbMNhqqApLg" association="_u-SfcNZ6Ee2GbMNhqqApLg"/>
   </packagedElement>
 </uml:Model>

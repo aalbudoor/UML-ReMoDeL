@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_gSazYI2pEe2Z_eSHmMKOzg" name="RM_CD8">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_gSazYI2pEe2Z_eSHmMKOzg" name="RM_CD8">
   <packageImport xmi:type="uml:PackageImport" xmi:id="_gTiNsI2pEe2Z_eSHmMKOzg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Model" xmi:id="_l8A5II2pEe2Z_eSHmMKOzg" name="Model2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_nIc3EI2pEe2Z_eSHmMKOzg" name="Class1"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ndkLcI2pEe2Z_eSHmMKOzg" name="Class2"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_9jMl0I2pEe26E53Gwt9_SA" name="RelationShipTwoOwnedEnds" memberEnd="_9jZaII2pEe26E53Gwt9_SA _9jgH0I2pEe26E53Gwt9_SA" navigableOwnedEnd="_9jZaII2pEe26E53Gwt9_SA _9jgH0I2pEe26E53Gwt9_SA">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9jXk8I2pEe26E53Gwt9_SA" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9jXk8Y2pEe26E53Gwt9_SA" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_9jgH0I2pEe26E53Gwt9_SA" name="class2" type="_ndkLcI2pEe2Z_eSHmMKOzg" association="_9jMl0I2pEe26E53Gwt9_SA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_9jZaII2pEe26E53Gwt9_SA" name="class1" type="_nIc3EI2pEe2Z_eSHmMKOzg" association="_9jMl0I2pEe26E53Gwt9_SA">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9jeSoI2pEe26E53Gwt9_SA"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9jfgwI2pEe26E53Gwt9_SA" value="1"/>
-    </ownedEnd>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MRfVMOScEe2rc9--1Dw_3A" name="Class1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NuoooOScEe2rc9--1Dw_3A" general="_MmFFIOScEe2rc9--1Dw_3A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MmFFIOScEe2rc9--1Dw_3A" name="Class2"/>
   </packagedElement>
 </uml:Model>

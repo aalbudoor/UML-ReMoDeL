@@ -59,11 +59,7 @@ public class RelationshipConverterv2 {
 
 		for (Content content : xpath1.match(document)) {
 			Element assocElem = (Element) content;
-			String assocID = assocElem.getValue("xmi:id");
 			List<Element> roleElems = assocElem.getChildren("ownedEnd");
-
-			if (roleElems.size() < 2)
-				roleElems.addAll(findMemberEnds(document, assocID));
 			createAssociation(assocElem, roleElems);
 
 		}

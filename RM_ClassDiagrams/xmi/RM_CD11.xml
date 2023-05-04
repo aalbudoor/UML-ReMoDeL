@@ -4,22 +4,41 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Model" xmi:id="_0cjwgLtTEe2L77iDHFKlDg" name="Model2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_2xVPgLtTEe2L77iDHFKlDg" name="Class1"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3EhRQLtTEe2L77iDHFKlDg" name="Class2"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3V7xYLtTEe2L77iDHFKlDg" name="Class3"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NaEJwOohEe2GOddCZBzsXQ" name="Customer">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WCYDYOohEe2GOddCZBzsXQ" name="customerId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WepvsOohEe2GOddCZBzsXQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XM7K8OohEe2GOddCZBzsXQ" name="email">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_TfHccOohEe2GOddCZBzsXQ" name="getCustomerId">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_pzYvwOohEe2GOddCZBzsXQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_T91YwOohEe2GOddCZBzsXQ" name="getName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_tWGokOohEe2GOddCZBzsXQ">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_UU0VYOohEe2GOddCZBzsXQ" name="placeOrder">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1SpoYOohEe2GOddCZBzsXQ" name="order" type="_NvaHoOohEe2GOddCZBzsXQ"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NvaHoOohEe2GOddCZBzsXQ" name="Order">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VtIMIOohEe2GOddCZBzsXQ" name="orderId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_5XWPgLtTEe2L77iDHFKlDg" memberEnd="_5XW2krtTEe2L77iDHFKlDg _5XXdoLtTEe2L77iDHFKlDg">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5XW2kLtTEe2L77iDHFKlDg" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5XW2kbtTEe2L77iDHFKlDg" key="nature" value="UML_Nature"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Y8aLkOohEe2GOddCZBzsXQ" memberEnd="_Y8g5QOohEe2GOddCZBzsXQ _Y8hgUOohEe2GOddCZBzsXQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Y8edAOohEe2GOddCZBzsXQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Y8edAeohEe2GOddCZBzsXQ" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_5XW2krtTEe2L77iDHFKlDg" name="class2" type="_3EhRQLtTEe2L77iDHFKlDg" aggregation="shared" association="_5XWPgLtTEe2L77iDHFKlDg"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_5XXdoLtTEe2L77iDHFKlDg" name="class1" type="_2xVPgLtTEe2L77iDHFKlDg" association="_5XWPgLtTEe2L77iDHFKlDg"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_6Ku0QLtTEe2L77iDHFKlDg" memberEnd="_6KvbUrtTEe2L77iDHFKlDg _6KvbU7tTEe2L77iDHFKlDg">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6KvbULtTEe2L77iDHFKlDg" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6KvbUbtTEe2L77iDHFKlDg" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_6KvbUrtTEe2L77iDHFKlDg" name="class3" type="_3V7xYLtTEe2L77iDHFKlDg" association="_6Ku0QLtTEe2L77iDHFKlDg"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_6KvbU7tTEe2L77iDHFKlDg" name="class2" type="_3EhRQLtTEe2L77iDHFKlDg" aggregation="composite" association="_6Ku0QLtTEe2L77iDHFKlDg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Y8g5QOohEe2GOddCZBzsXQ" name="order" type="_NvaHoOohEe2GOddCZBzsXQ" association="_Y8aLkOohEe2GOddCZBzsXQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Y8hgUOohEe2GOddCZBzsXQ" name="customer" type="_NaEJwOohEe2GOddCZBzsXQ" aggregation="composite" association="_Y8aLkOohEe2GOddCZBzsXQ"/>
   </packagedElement>
 </uml:Model>

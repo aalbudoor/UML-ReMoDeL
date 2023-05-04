@@ -21,18 +21,38 @@ public class DocumentToDiagramConverter {
 
 	HashMap<String, BasicType> basicTypesMap = new HashMap<>();
 	public HashMap<String, ClassType> classTypesMap = new HashMap<>();
-
+	HashMap<String, BasicType> dataTypesMap = new HashMap<>();
+	
 	public Diagram convert(Document document) {
 
 		Diagram diagram = new Diagram();
 
 		setDiagramName(diagram, document);
 		setBasicTypes(diagram, document);
+		setDataTypes(diagram, document);
 		setClassTypes(diagram, document);
-
 		return diagram;
 
 	}
+
+	private void setDataTypes(Diagram diagram, Document document) {
+		XPath findDataTypes = new XPath("//packagedElement[@xmi:type=uml:DataType]");
+
+		List<Content> dataTypes = findDataTypes.match(document);
+
+		for (Content content : dataTypes) {
+			String id = getValue(content.getAttributes(), "id");
+			String name = getValue(content.getAttributes(), "name");
+			BasicType dataType = new BasicType();
+			dataType.setName(name);
+			if (! dataTypesMap.containsKey(id)) {
+				dataTypesMap.put(id, dataType);
+				diagram.getBasicTypes().add(dataType);
+				}
+
+		}
+
+	}	
 
 	/**
 	 * @param diagram
@@ -41,9 +61,10 @@ public class DocumentToDiagramConverter {
 	private void setDiagramName(Diagram diagram, Document document) {
 		XPath findDiagramName = new XPath("/uml:Model");
 		List<Content> matches = findDiagramName.match(document);
-		diagram.setName(getValue(matches.get(0).getAttributes(), "name"));
-
+		Element umlModel = (Element) matches.get(0);
+		diagram.setName(umlModel.getValue("name"));
 	}
+	
 
 	/**
 	 * 
@@ -65,7 +86,7 @@ public class DocumentToDiagramConverter {
 			classType.setName(className);
 			classTypesMap.put(id, classType);
 			diagram.getClassTypes().add(classType);
-		}
+		}// closing for-loop #1
 
 		for (Content content : classTypes) {
 			Element classElem = (Element) content;
@@ -75,15 +96,17 @@ public class DocumentToDiagramConverter {
 			for (Content classContent : content.getContents()) {
 				if (classContent.getIdentifier().equals("ownedAttribute")) {
 					setAttributes(classContent, classType);
-				}
+				}//closing if-statement
 
 				if (classContent.getIdentifier().equals("ownedOperation")) {
 					setOperations(classContent, classType);
-				}
-			}
+				}//closing if-statement
+				
+			}// closing for-loop #3
 
-		}
-	}
+		} // closing for-loop #2
+		
+	}//Closing method 
 
 	/**
 	 * @param classContent
@@ -94,18 +117,27 @@ public class DocumentToDiagramConverter {
 	private void setAttributes(Content classContent, ClassType classType) {
 		meta.umlcd.Attribute attr = new meta.umlcd.Attribute();
 		String name = getValue(classContent.getAttributes(), "name");
+		//collect type property not node
+		String type = getValue(classContent.getAttributes(), "type");
+		BasicType attributeType = dataTypesMap.get(type);
 		attr.setName(name);
+		
+		if (attributeType != null) {
+			attr.setType(attributeType);
+			
+		} else {
+			
 
 		for (Content typeContent : classContent.getContents()) {
 			String basicTypeValue = getValue(typeContent.getAttributes(), "href");
 			if (basicTypeValue != null && !basicTypeValue.equals("")) {
 				String basicTypeName = basicTypeValue.split("#")[1];
-				Type attributeType = new Type();
-				attributeType.setName(basicTypeName);
-				attr.setType(attributeType);
+				attr.setType(basicTypesMap.get(basicTypeName));
 			}
 
 		}
+		
+		} //closing else block
 
 		classType.getAttributes().add(attr);
 
@@ -128,47 +160,64 @@ public class DocumentToDiagramConverter {
 
 			if (layerTypeContent.getIdentifier().equals("ownedParameter")) {
 				parameterName = getValue(layerTypeContent.getAttributes(), "name");
-				// if direction is return then dont add parameter as argument
+
 				direction = getValue(layerTypeContent.getAttributes(), "direction");
 
 				String value = getValue(layerTypeContent.getAttributes(), "type");
 				Type parameterType = classTypesMap.get(value);
 
 				if (parameterType != null && !direction.equals("return")) {
+					//setting Classtype arguments
 					Variable variable = new Variable();
 					variable.setName(parameterName);
 					variable.setType(parameterType);
 					oper.getArguments().add(variable);
 
-				}
-				// Sets the type of the operation (not arguments)
-				oper.setType(parameterType);
+				} else {
+	
+					for (Content typeContent : layerTypeContent.getContents()) {
+						String basicTypeValue = getValue(typeContent.getAttributes(), "href");
+						// this condition is for setting the whole operation to ClassType and 
+						//not the arguments
+						if (basicTypeValue != null && !basicTypeValue.equals("")) {
+							String basicTypeName = basicTypeValue.split("#")[1];
+							 parameterType = basicTypesMap.get(basicTypeName);
+							 
+							 
+							if (parameterType != null && !direction.equals("return")) {
+								//setting BasicType arguments
+								Variable variable = new Variable();
+								variable.setName(parameterName);
+								variable.setType(parameterType);
+								oper.getArguments().add(variable);
 
-			}
-			for (Content typeContent : layerTypeContent.getContents()) {
-				String basicTypeValue = getValue(typeContent.getAttributes(), "href");
-				if (basicTypeValue != null && !basicTypeValue.equals("")) {
-					String basicTypeName = basicTypeValue.split("#")[1];
-					Type parameterType = basicTypesMap.get(basicTypeName);
+							}
+							//set type of entire operation
+							// if direction is return then don't add parameter as argument
+							if (direction.equals("return")) {
+							Type operationType = new Type();
+							operationType.setName(basicTypeName);
+							oper.setType(operationType);
+							}//closing if-statement
+							
+						}//closing if-statement
+						
+				}//closing for-loop #2
+					
+					// Sets the type of the operation
+					if (direction.equals("return")) {
+						oper.setType(parameterType);
+					}//closing if-statement
 
-					if (parameterType != null && !direction.equals("return")) {
-						Variable variable = new Variable();
-						variable.setName(parameterName);
-						variable.setType(parameterType);
-						oper.getArguments().add(variable);
-
-					}
-
-					Type operationType = new Type();
-					operationType.setName(basicTypeName);
-					oper.setType(operationType);
-
-				}
-			}
-		}
+			}//closing else block 
+			
+			}//closing if-statement
+			
+		}//closing for-loop #1
+		
 		classType.getOperations().add(oper);
 
-	}
+	}//closing method
 
 	/**
 	 * @param diagram
@@ -186,15 +235,11 @@ public class DocumentToDiagramConverter {
 			String basicTypeName = attribute.getValue().split("#")[1];
 			BasicType basicType1 = new BasicType();
 			basicType1.setName(basicTypeName);
-			BasicType result = basicTypesMap.put(basicTypeName, basicType1);
-			if (result == null) {
-
+			if (! basicTypesMap.containsKey(basicTypeName)) {
+				basicTypesMap.put(basicTypeName, basicType1);
 				diagram.getBasicTypes().add(basicType1);
-
-			}
-
+				}
 		}
-
 	}
 
 	/**

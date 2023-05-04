@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ciWdUG03Ee2uE6npmAMGEw" name="RM_CD4">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ciWdUG03Ee2uE6npmAMGEw" name="RM_CD4">
   <packageImport xmi:type="uml:PackageImport" xmi:id="_cj0c8G03Ee2uE6npmAMGEw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Model" xmi:id="_fPCGAG03Ee2uE6npmAMGEw" name="Model2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_hqzk4G03Ee2uE6npmAMGEw" name="Member" visibility="public"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_lLdJgL26Ee2L77iDHFKlDg" name="Class2">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_8380AL26Ee2L77iDHFKlDg" name="member" type="_hqzk4G03Ee2uE6npmAMGEw" association="_835JoL26Ee2L77iDHFKlDg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_839bEL26Ee2L77iDHFKlDg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_839bEb26Ee2L77iDHFKlDg" value="1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eArckOQUEe2rc9--1Dw_3A" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MPT6cOQZEe2rc9--1Dw_3A" name="date" type="_EdgLAOQZEe2rc9--1Dw_3A"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BeNrEOWoEe2GOddCZBzsXQ" name="age">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Jm7eoOWoEe2GOddCZBzsXQ" name="money" type="_HBNZkOWoEe2GOddCZBzsXQ"/>
     </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_835JoL26Ee2L77iDHFKlDg" memberEnd="_8380AL26Ee2L77iDHFKlDg _83-CIL26Ee2L77iDHFKlDg">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_838M8L26Ee2L77iDHFKlDg" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_838M8b26Ee2L77iDHFKlDg" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_83-CIL26Ee2L77iDHFKlDg" name="class2" type="_lLdJgL26Ee2L77iDHFKlDg" association="_835JoL26Ee2L77iDHFKlDg"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_EdgLAOQZEe2rc9--1Dw_3A" name="Date"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_HBNZkOWoEe2GOddCZBzsXQ" name="Money"/>
   </packagedElement>
 </uml:Model>

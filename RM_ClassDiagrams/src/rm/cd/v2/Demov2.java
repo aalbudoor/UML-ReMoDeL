@@ -13,14 +13,14 @@ public class Demov2 {
 	public static void main(String[] args) {
 		try {
 
-			File file = new File("xmi/RM_CD4.xml"); // Or whatever file
+			File file = new File("xmi/Student Records.xml"); // Or whatever file
 			XMLReader reader = new XMLReader(file); // Uses UTF-8
 			Document document = reader.readDocument();
 
 			DocumentToDiagramConverter converter = new DocumentToDiagramConverter();
 
 			Diagram diagram = converter.convert(document);
-			File associationFile = new File("xmi/RM_CD4.xml");
+			File associationFile = new File("xmi/Student Records.xml");
 			XMLReader reader1 = new XMLReader(associationFile);
 			Document associationDocument = reader1.readDocument();
 			// comment when extracting generalisation
@@ -35,8 +35,8 @@ public class Demov2 {
 			reader1.close();
 			reader.close();
 
-//			Model<Diagram> model = new Model<>("cd1", "UmlCd", diagram);
-//			File outputFile = new File("models/cd1.mod");
+//			Model<Diagram> model = new Model<>("Student Records", "UmlCd", diagram);
+//			File outputFile = new File("models/Student Records.mod");
 //			model.write(outputFile);
 
 		} catch (IOException ex) {
